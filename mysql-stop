@@ -1,0 +1,21 @@
+#! /bin/zsh
+
+touch $MYSQL_DIR/code
+code=$(cat $MYSQL_DIR/code)
+
+if (( ${#code} == 0 )) then
+    echo "There's not mysql container running, or the code file might be deleted by mistake."
+    return
+fi
+
+code=$(sudo docker stop $code)
+
+rm $MYSQL_DIR/code
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+#! /bin/zsh
+
+db_path=$DB_PATH/mongo/data
+code_path=$DB_PATH/mongo/code
+
+touch $MYSQL_DIR/code
+code=$(cat $code_path)
+
+if (( ${#code} == 0 )) then
+    echo "There's not mongo container running, or the code file might be deleted by mistake."
+    return
+fi
+
+code=$(sudo docker stop $code)
+
+rm $code_path
+
+
+
+
+
+
+
+

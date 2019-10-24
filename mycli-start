@@ -1,0 +1,3 @@
+#! /bin/zsh
+
+mycli -u root -p $MYSQL_ROOT_PASSWORD
