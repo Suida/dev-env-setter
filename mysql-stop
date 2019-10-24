@@ -1,6 +1,9 @@
 #! /bin/zsh
 
-touch $MYSQL_DIR/code
+db_path=$DB_PATH/mysql/data
+code_path=$DB_PATH/mysql/code
+
+touch $code_path
 code=$(cat $MYSQL_DIR/code)
 
 if (( ${#code} == 0 )) then
@@ -10,7 +13,7 @@ fi
 
 code=$(sudo docker stop $code)
 
-rm $MYSQL_DIR/code
+rm $code_path
 
 
 

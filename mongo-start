@@ -13,7 +13,7 @@ then
     return
 fi
 
-code=$(sudo docker run -d -v $db_path:/var/lib/mysql -p 27017:27017 mongo)
+code=$(sudo docker run --name mongo -d -v $db_path:/var/lib/mysql -p 27017:27017 mongo)
 echo $code > $code_path
 
 

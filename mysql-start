@@ -1,17 +1,20 @@
 #! /bin/zsh
 
-touch $MYSQL_DIR/code
+db_path=$DB_PATH/mysql/data
+code_path=$DB_PATH/mysql/code
 
-code=$(cat $MYSQL_DIR/code)
+touch $code_path
+
+code=$(cat $code_path)
 
 if (( ${#code} > 0 ))
 then
-    echo "MySQL container might be running with ID ${code}\nIf not:\n\tTry cmd 'rm $MYSQL_DIR/code'."
+    echo "MySQL container might be running with ID ${code}\nIf not:\n\tTry cmd 'rm $code_path'."
     return
 fi
 
-code=$(sudo docker run -d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -v $MYSQL_DIR/data:/var/lib/mysql -p 3306:3306 mysql)
-echo $code > $MYSQL_DIR/code
+code=$(sudo docker run --name mysql -d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -v $db_path:/var/lib/mysql -p 3306:3306 mysql)
+echo $code > $code_path
 
 
 

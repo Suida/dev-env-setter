@@ -3,7 +3,7 @@
 db_path=$DB_PATH/mongo/data
 code_path=$DB_PATH/mongo/code
 
-touch $MYSQL_DIR/code
+touch $code_path
 code=$(cat $code_path)
 
 if (( ${#code} == 0 )) then
