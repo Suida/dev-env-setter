@@ -13,7 +13,7 @@ then
     return
 fi
 
-code=$(sudo docker run --name mysql -d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -v $db_path:/var/lib/mysql -p 3306:3306 mysql)
+code=$(sudo docker run -d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -v $db_path:/var/lib/mysql -p 3306:3306 mysql)
 echo $code > $code_path
 
 
