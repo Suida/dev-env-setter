@@ -4,7 +4,7 @@ db_path=$DB_PATH/mysql/data
 code_path=$DB_PATH/mysql/code
 
 touch $code_path
-code=$(cat $MYSQL_DIR/code)
+code=$(cat $code_path)
 
 if (( ${#code} == 0 )) then
     echo "There's not mysql container running, or the code file might be deleted by mistake."
